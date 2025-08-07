@@ -1,0 +1,12 @@
+services:
+  php:
+    restart: unless-stopped
+    ports:
+      - "80:8080"
+    build:
+      context: .
+      args:
+        USER_ID: ${USER_ID:-1000}
+        GROUP_ID: ${GROUP_ID:-1000}
+    volumes:
+      - .:/var/www/html:cached
